@@ -1,0 +1,20 @@
+﻿@model WebApplication1.Models.GuestResponse
+
+@{
+    ViewData["Title"] = "Thanks";
+}
+
+<h1>Thanks</h1>
+
+<div>
+    @if (Model.WillAttend == true)
+    {
+        @:Thanks
+    } else
+    {
+        @:Sorry
+    }
+</div>
+<p>
+    Click <a asp-action="ListResponses">here</a> too see who is coming.
+</p>

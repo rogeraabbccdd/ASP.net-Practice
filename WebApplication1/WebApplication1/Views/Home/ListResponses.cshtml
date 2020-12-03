@@ -1,0 +1,17 @@
+﻿@model IEnumerable<WebApplication1.Models.GuestResponse>
+@{
+    ViewData["Title"] = "ListResponses";
+}
+
+<h1>ListResponses</h1>
+
+<table border="1">
+    @foreach(WebApplication1.Models.GuestResponse r in Model)
+    {
+        <tr>
+            <td>@r.Name</td>
+            <td>@r.Email</td>
+            <td>@r.Phone</td>
+        </tr>
+    }
+</table>

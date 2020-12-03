@@ -22,12 +22,32 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();
         }
-
+        [HttpGet]
+        public IActionResult RsvpForm ()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult RsvpForm(GuestResponse guestResponse)
+        {
+            if(ModelState.IsValid)
+            {
+                Repository.AddResponse(guestResponse);
+                return View("Thanks", guestResponse);
+            } 
+            else
+            {
+                return View();
+            }
+        }
+        public IActionResult ListResponses()
+        {
+            return View(Repository.Responses.Where(r => r.WillAttend == true));
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
